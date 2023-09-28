@@ -107,6 +107,17 @@ function App() {
       }
     }
 
+    const bmi = getBMI();
+    if (!isNaN(parseFloat(bmi))) {
+      if (parseFloat(bmi) < 25) {
+        total += 0;
+      } else if (parseFloat(bmi) <= 30) {
+        total += 1;
+      } else {
+        total += 2;
+      }
+    }
+
     return total;
   };
 
@@ -127,7 +138,7 @@ function App() {
   };
 
   return (
-    <div className='flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-blue-50 text-black'>
+    <div className='flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-blue-50 text-black px-2 md: px-0'>
       <div className='pb-12 text-2xl font-bold sm:text-3xl md:text-5xl'>Department Of Anaesthesia</div>
       <div className='flex w-full items-center justify-start space-x-6 md:w-1/3'>
         <div className='flex w-1/3 items-center justify-start'>MPG: </div>
@@ -165,7 +176,7 @@ function App() {
         <div className='flex w-1/3 items-center justify-start'>Upper lip Bite test: </div>
         <MpgInputBox mpgValue={upperLipBite} setMpgValue={setUpperLipBite} options={UpperLipBite} />
       </div>
-      <div className={`flex w-full items-center justify-start pt-8 text-3xl font-bold md:w-1/3`}>
+      <div className={`flex w-full items-center justify-start pt-8 text-2xl md:text-3xl font-bold md:w-1/3`}>
         <div className='flex w-1/3 items-center justify-start'>Score: </div>
         <div className={`pl-6 ${score() < 3 ? "text-green-400" : score() < 8 ? "text-rose-400" : "text-rose-600"}`}>
           {score()}

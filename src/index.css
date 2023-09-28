@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white text-black;
+  @apply bg-white text-black text-sm md:text-base;
 }
 
 .remove-arrow::-webkit-inner-spin-button,
