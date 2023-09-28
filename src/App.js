@@ -138,8 +138,9 @@ function App() {
   };
 
   return (
-    <div className='flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-blue-50 text-black px-2 md: px-0'>
-      <div className='pb-12 text-2xl font-bold sm:text-3xl md:text-5xl'>Department Of Anaesthesia</div>
+    <div className='flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-blue-50 text-black px-2 md:px-0'>
+      <div className='text-center text-blue-500 text-2xl font-bold sm:text-3xl md:text-5xl'>SGT Medical College and Research Institute</div>
+      <div className='pb-12 text-xl text-blue-400 font-semibold sm:text-xl md:text-3xl'>Department Of Anaesthesia</div>
       <div className='flex w-full items-center justify-start space-x-6 md:w-1/3'>
         <div className='flex w-1/3 items-center justify-start'>MPG: </div>
         <MpgInputBox mpgValue={mpgValue} setMpgValue={setMpgValue} options={MPGValues} />
@@ -177,7 +178,7 @@ function App() {
         <MpgInputBox mpgValue={upperLipBite} setMpgValue={setUpperLipBite} options={UpperLipBite} />
       </div>
       <div className={`flex w-full items-center justify-start pt-8 text-2xl md:text-3xl font-bold md:w-1/3`}>
-        <div className='flex w-1/3 items-center justify-start'>Score: </div>
+        <div className='flex w-1/3 items-center justify-start text-blue-500'>Score: </div>
         <div className={`pl-6 ${score() < 3 ? "text-green-400" : score() < 8 ? "text-rose-400" : "text-rose-600"}`}>
           {score()}
         </div>
