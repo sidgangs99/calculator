@@ -15,9 +15,9 @@ const UpperLipBite = [
 ];
 
 const HeadNeckMovement = [
-  { id: 1, name: "less than 90 deg", score: 0 },
+  { id: 3, name: "greater than 90 deg", score: 0 },
   { id: 2, name: "equal to 90 deg", score: 1 },
-  { id: 3, name: "greater than 90 deg", score: 2 },
+  { id: 1, name: "less than 90 deg", score: 2 },
 ];
 
 const MpgInputBox = (props) => {
@@ -27,7 +27,7 @@ const MpgInputBox = (props) => {
     <div className={`w-52 text-black`}>
       <Listbox value={mpgValue} onChange={setMpgValue}>
         <div className='relative'>
-          <Listbox.Button className='relative w-full cursor-default rounded-lg bg-blue-300/20 px-3 py-2 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm'>
+          <Listbox.Button className='relative w-full cursor-default rounded-lg bg-blue-300/20 px-3 py-1.5 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm'>
             <span className='block truncate'>{mpgValue.name}</span>
           </Listbox.Button>
           <Transition as={Fragment} leave='transition ease-in duration-100' leaveFrom='opacity-100' leaveTo='opacity-0'>
@@ -37,7 +37,7 @@ const MpgInputBox = (props) => {
                   key={personIdx}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-3 ${
-                      active ? "bg-amber-100 text-amber-900" : "text-gray-900"
+                      active ? "bg-blue-100 text-blue-900" : "text-gray-900"
                     }`
                   }
                   value={person}
@@ -138,9 +138,13 @@ function App() {
   };
 
   return (
-    <div className='flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-blue-50 text-black px-2 md:px-0'>
-      <div className='text-center text-blue-500 text-2xl font-bold sm:text-3xl md:text-5xl'>SGT Medical College and Research Institute</div>
-      <div className='pb-12 text-xl text-blue-400 font-semibold sm:text-xl md:text-3xl'>Department Of Anaesthesia</div>
+    <div className='flex h-full w-screen flex-col items-center justify-center space-y-2 bg-blue-50 px-2 text-black md:space-y-4 md:px-0'>
+      <div className='text-center text-2xl font-bold text-blue-500 sm:text-3xl md:text-5xl'>
+        SGT Airway Assessment App
+      </div>
+      <div className='pb-12 text-center text-base font-normal text-blue-400 md:w-1/2 md:text-2xl'>
+        Developed by Department of Anesthesia SGT Medical College & Research Institute
+      </div>
       <div className='flex w-full items-center justify-start space-x-6 md:w-1/3'>
         <div className='flex w-1/3 items-center justify-start'>MPG: </div>
         <MpgInputBox mpgValue={mpgValue} setMpgValue={setMpgValue} options={MPGValues} />
@@ -177,7 +181,13 @@ function App() {
         <div className='flex w-1/3 items-center justify-start'>Upper lip Bite test: </div>
         <MpgInputBox mpgValue={upperLipBite} setMpgValue={setUpperLipBite} options={UpperLipBite} />
       </div>
-      <div className={`flex w-full items-center justify-start pt-8 text-2xl md:text-3xl font-bold md:w-1/3`}>
+      <div className={`flex w-full items-center justify-start pt-8 font-semibold md:w-1/3`}>
+        <div className='flex w-2/6 items-center justify-start text-blue-500'>Intubation Difficulty: </div>
+        <div className={`pl-6 ${score() < 3 ? "text-green-400" : score() < 8 ? "text-rose-400" : "text-rose-600"}`}>
+          {score() < 3 ? "Easy" : score() < 8 ? "Moderate" : "Severe"}
+        </div>
+      </div>
+      <div className={`flex w-full items-center justify-start text-2xl font-bold md:w-1/3 md:text-3xl`}>
         <div className='flex w-1/3 items-center justify-start text-blue-500'>Score: </div>
         <div className={`pl-6 ${score() < 3 ? "text-green-400" : score() < 8 ? "text-rose-400" : "text-rose-600"}`}>
           {score()}
