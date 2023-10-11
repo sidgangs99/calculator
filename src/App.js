@@ -183,13 +183,13 @@ function App() {
       </div>
       <div className={`flex w-full items-center justify-start pt-8 font-semibold md:w-1/3`}>
         <div className='flex w-2/6 items-center justify-start text-blue-500'>Intubation Difficulty: </div>
-        <div className={`pl-6 ${score() < 3 ? "text-green-400" : score() < 8 ? "text-rose-400" : "text-rose-600"}`}>
-          {score() < 3 ? "Easy" : score() < 8 ? "Moderate" : "Severe"}
+        <div className={`pl-6 ${score() <= 3 ? "text-green-400" : score() <= 8 ? "text-rose-400" : "text-rose-600"}`}>
+          {score() <= 3 ? "Easy" : score() <= 8 ? "Moderate" : "Severe"}
         </div>
       </div>
       <div className={`flex w-full items-center justify-start text-2xl font-bold md:w-1/3 md:text-3xl`}>
         <div className='flex w-1/3 items-center justify-start text-blue-500'>Score: </div>
-        <div className={`pl-6 ${score() < 3 ? "text-green-400" : score() < 8 ? "text-rose-400" : "text-rose-600"}`}>
+        <div className={`pl-6 ${score() <= 3 ? "text-green-400" : score() <= 8 ? "text-rose-400" : "text-rose-600"}`}>
           {score()}
         </div>
       </div>
